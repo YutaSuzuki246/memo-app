@@ -1,0 +1,19 @@
+<h3>Edit Memo</h3>
+<%= form_with model: @memo do |f|%>
+    <div class="mb-3">
+        <%= label_tag "form-title", "Title" %>
+        <%= text_field :memos, :title, id:"form-title", class:"form-control", placeholder: "title" %>
+        <div class="form-text">タイトルを入力してください</div>
+    </div>
+    <div class="mb-3">
+        <%= label_tag "form-content", "Content" %>
+        <%= text_field :memos, :body, id:"form-content", class:"form-control", placeholder: "content" %>
+        <div class="form-text">内容を入力してください</div>
+    </div>
+    <div class="mb-3">
+        <%= label_tag "form-category", "Category" %>
+        <%= select_tag "memos[category_id]", options_from_collection_for_select(@categories, "id", "name"), id:"form-category", class:"form-control" %>
+        <div class="form-text">カテゴリを選択してください</div>
+    </div>
+    <%= submit_tag "Update", class:"btn btn-primary" %>
+<% end %>
